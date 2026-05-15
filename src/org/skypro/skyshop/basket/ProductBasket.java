@@ -1,55 +1,55 @@
 package org.skypro.skyshop.basket;
+
 import org.skypro.skyshop.product.Product;
 
 public class ProductBasket {
-
-    private Product[] products;
-
-    public ProductBasket() {
-        this.products = new Product[5];
-    }
+    private static final int MAX_PRODUCTS = 5;
+    private Product[] products = new Product[MAX_PRODUCTS];
+    private int count = 0;
 
     public void addProduct(Product product) {
-        for (int i = 0; i < products.length; i++) {
-            if (products[i] == null) {
-                products[i] = product;
-                return;
-            }
+        if (count < MAX_PRODUCTS) {
+            products[count] = product;
+            count++;
+            System.out.println("Товар '" + product.getName() + "' добавлен в корзину");
+        } else {
+            System.out.println("Корзина заполнена! Товар '" + product.getName() + "' не добавлен");
         }
-        System.out.println("Невозможно добавить продукт");
     }
 
-    public int totalCost() {
-        int total = 0;
-        for (Product product : products) {
-            if (product != null) {
-                total += product.getPrice();
-            }
+   public void print() {
+        if (count == 0) {
+            System.out.println("Корзина пуста");
+            return;
+        }
+        System.out.println("Содержимое корзины:");
+        for (int i = 0; i < count; i++) {
+            System.out.println((i + 1) + ". " + products[i].getName() + " - " + products[i].getPrice() + " руб.");
+        }
+    }
+
+     public double totalCost() {
+        double total = 0;
+        for (int i = 0; i < count; i++) {
+            total += products[i].getPrice();
         }
         return total;
     }
 
-    public void print() {
-        for (Product product : products) {
-            if (product != null) {
-                System.out.println(product.getName() + ": " + product.getPrice());
-            }
-        }
-        System.out.println("Итого: " + totalCost());
-    }
-
-    public boolean checkProductByName(String name) {
-        for (Product product : products) {
-            if (product != null && product.getName().equals(name)) {
+   public boolean checkProductByName(String name) {
+        for (int i = 0; i < count; i++) {
+            if (products[i].getName().equalsIgnoreCase(name)) {
                 return true;
             }
         }
         return false;
     }
 
-    public void clearCart() {
-        for (int i = 0; i < products.length; i++) {
+   public void clearCart() {
+        for (int i = 0; i < count; i++) {
             products[i] = null;
         }
+        count = 0;
+        System.out.println("Корзина очищена");
     }
 }
