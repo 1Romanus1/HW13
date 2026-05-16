@@ -15,4 +15,8 @@ public class DiscountedProduct extends Product {
         double discountFactor = discountPercent / 100.0;
         return basePrice * (1 - discountFactor);
     }
+
+    public  boolean isSpecial() {
+        return discountPercent > 20;
+    }
 }

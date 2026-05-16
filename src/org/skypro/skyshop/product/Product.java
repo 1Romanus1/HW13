@@ -12,4 +12,11 @@ public abstract class Product {
     }
 
     public abstract double getPrice();
+
+    public abstract boolean isSpecial();
+
+    @Override
+    public String toString() {
+        return String.format("%s - %.2f руб. (special: %s)", new Object[]{name, getPrice(), isSpecial()});
+    }
 }
