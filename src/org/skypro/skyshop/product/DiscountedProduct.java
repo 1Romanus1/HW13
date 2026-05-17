@@ -26,3 +26,4 @@ public class DiscountedProduct extends Product {
         return String.format("%s: %.2f (%d%%)", name, getPrice(), discountPercent);
     }
 }
+//

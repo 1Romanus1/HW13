@@ -23,3 +23,4 @@ public class SimpleProduct extends Product {
         return String.format("%s: %.2f", name, getPrice());
     }
 }
+//
