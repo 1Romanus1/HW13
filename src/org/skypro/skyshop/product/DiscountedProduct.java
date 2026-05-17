@@ -16,7 +16,13 @@ public class DiscountedProduct extends Product {
         return basePrice * (1 - discountFactor);
     }
 
-    public  boolean isSpecial() {
-        return discountPercent > 20;
+    @Override
+    public boolean isSpecial() {
+        return true; // Все товары со скидкой считаются специальными
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s: %.2f (%d%%)", name, getPrice(), discountPercent);
     }
 }

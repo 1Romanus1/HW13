@@ -17,6 +17,6 @@ public abstract class Product {
 
     @Override
     public String toString() {
-        return String.format("%s - %.2f руб. (special: %s)", new Object[]{name, getPrice(), isSpecial()});
+        return String.format("%s: %.2f", name, getPrice());
     }
 }

@@ -16,9 +16,6 @@ public class App {
         Product p5 = new SimpleProduct("Tea", 200);
         Product p6 = new SimpleProduct("Coffee", 300);
 
-        // Дополнительно создадим товары других типов для демонстрации
-        Product p7 = new DiscountedProduct("Laptop", 60000, 15); // 15 % скидка
-        Product p8 = new FixPriceProduct("Sticker pack"); // Фиксированная цена 99.99
 
         ProductBasket basket = new ProductBasket();
 
