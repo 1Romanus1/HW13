@@ -5,6 +5,7 @@ import org.skypro.skyshop.product.Product;
 import org.skypro.skyshop.product.SimpleProduct;
 import org.skypro.skyshop.product.DiscountedProduct;
 import org.skypro.skyshop.product.FixPriceProduct;
+import org.skypro.skyshop.search.SearchEngine;
 
 public class App {
     public static void main(String[] args) {
@@ -54,4 +55,3 @@ public class App {
         System.out.println(basket.checkProductByName("Apple"));
     }
 }
-//
