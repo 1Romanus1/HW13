@@ -2,16 +2,21 @@ package org.skypro.skyshop;
 
 import org.skypro.skyshop.basket.ProductBasket;
 import org.skypro.skyshop.product.Product;
+import org.skypro.skyshop.product.SimpleProduct;
+import org.skypro.skyshop.product.DiscountedProduct;
+import org.skypro.skyshop.product.FixPriceProduct;
+import org.skypro.skyshop.search.SearchEngine;
 
 public class App {
     public static void main(String[] args) {
 
-        Product p1 = new Product("Apple", 100);
-        Product p2 = new Product("Banana", 50);
-        Product p3 = new Product("Milk", 120);
-        Product p4 = new Product("Bread", 80);
-        Product p5 = new Product("Tea", 200);
-        Product p6 = new Product("Coffee", 300);
+        Product p1 = new SimpleProduct("Apple", 100);
+        Product p2 = new SimpleProduct("Banana", 50);
+        Product p3 = new SimpleProduct("Milk", 120);
+        Product p4 = new SimpleProduct("Bread", 80);
+        Product p5 = new SimpleProduct("Tea", 200);
+        Product p6 = new SimpleProduct("Coffee", 300);
+
 
         ProductBasket basket = new ProductBasket();
 
@@ -29,7 +34,7 @@ public class App {
         basket.print();
 
         System.out.println("\n4. Стоимость корзины:");
-        System.out.println(basket.totalCost());
+        System.out.println(basket.totalCost() + " руб.");
 
         System.out.println("\n5. Поиск существующего товара (Milk):");
         System.out.println(basket.checkProductByName("Milk"));
@@ -44,7 +49,7 @@ public class App {
         basket.print();
 
         System.out.println("\n9. Стоимость пустой корзины:");
-        System.out.println(basket.totalCost());
+        System.out.println(basket.totalCost() + " руб.");
 
         System.out.println("\n10. Поиск в пустой корзине (Apple):");
         System.out.println(basket.checkProductByName("Apple"));
